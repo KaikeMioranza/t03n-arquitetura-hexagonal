@@ -3,11 +3,26 @@ package com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.res
 import java.time.LocalDate;
 
 public class PessoaDTO {
+
+    private Integer id;
+
     private String nomeCompleto;
+
     private String cpf;
+
     private LocalDate dataNascimento;
+
     private String email;
+
     private String telefone;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNomeCompleto() {
         return nomeCompleto;

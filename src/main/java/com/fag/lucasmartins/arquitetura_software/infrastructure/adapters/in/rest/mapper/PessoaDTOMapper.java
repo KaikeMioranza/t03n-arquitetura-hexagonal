@@ -8,7 +8,11 @@ public class PessoaDTOMapper {
     private PessoaDTOMapper() {}
 
     public static PessoaBO toBo(PessoaDTO dto) {
+        if (dto == null) {
+            return null;
+        }
         PessoaBO bo = new PessoaBO();
+        bo.setId(dto.getId());
         bo.setNomeCompleto(dto.getNomeCompleto());
         bo.setCpf(dto.getCpf());
         bo.setDataNascimento(dto.getDataNascimento());
@@ -19,6 +23,7 @@ public class PessoaDTOMapper {
 
     public static PessoaDTO toDto(PessoaBO bo) {
         PessoaDTO dto = new PessoaDTO();
+        dto.setId(bo.getId());
         dto.setNomeCompleto(bo.getNomeCompleto());
         dto.setCpf(bo.getCpf());
         dto.setDataNascimento(bo.getDataNascimento());

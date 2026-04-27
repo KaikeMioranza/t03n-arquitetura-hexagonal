@@ -5,7 +5,10 @@ import com.fag.lucasmartins.arquitetura_software.core.domain.bo.PessoaBO;
 import com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.rest.dto.PessoaDTO;
 import com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.rest.mapper.PessoaDTOMapper;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/pessoas")
@@ -18,10 +21,12 @@ public class PessoaControllerAdapter {
     }
 
     @PostMapping
-    public ResponseEntity<PessoaDTO> cadastrarPessoa(@RequestBody PessoaDTO pessoaDTO) {
-        PessoaBO bo = PessoaDTOMapper.toBo(pessoaDTO);
-        PessoaBO salvo = pessoaServicePort.salvar(bo);
-        PessoaDTO resposta = PessoaDTOMapper.toDto(salvo);
-        return ResponseEntity.status(201).body(resposta);
+    public ResponseEntity<PessoaDTO> cadastrarPessoa(@RequestBody PessoaDTO requestDTO) {
+        PessoaBO bo = PessoaDTOMapper.toBo(requestDTO);
+
+        PessoaBO pessoaCriada = pessoaServicePort.salvar(bo);
+
+        PessoaDTO responseDTO = PessoaDTOMapper.toDto(pessoaCriada);
+        return ResponseEntity.status(201).body(responseDTO);
     }
 }
