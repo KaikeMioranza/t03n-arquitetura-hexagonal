@@ -5,27 +5,28 @@ import com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.out.per
 
 public class PessoaMapper {
 
-    private PessoaMapper() {}
-
-    public static PessoaEntity toEntity(PessoaBO bo) {
-        PessoaEntity e = new PessoaEntity();
-        e.setId(bo.getId());
-        e.setNomeCompleto(bo.getNomeCompleto());
-        e.setCpf(bo.getCpf());
-        e.setDataNascimento(bo.getDataNascimento());
-        e.setEmail(bo.getEmail());
-        e.setTelefone(bo.getTelefone());
-        return e;
+    private PessoaMapper() {
     }
 
-    public static PessoaBO toBO(PessoaEntity e) {
+    public static PessoaEntity toEntity(PessoaBO bo) {
+        PessoaEntity entity = new PessoaEntity();
+        entity.setId(bo.getId());
+        entity.setNomeCompleto(bo.getNomeCompleto());
+        entity.setCpf(bo.getCpf());
+        entity.setDataNascimento(bo.getDataNascimento());
+        entity.setEmail(bo.getEmail());
+        entity.setTelefone(bo.getTelefone());
+        return entity;
+    }
+
+    public static PessoaBO toBO(PessoaEntity entity) {
         PessoaBO bo = new PessoaBO();
-        bo.setId(e.getId());
-        bo.setNomeCompleto(e.getNomeCompleto());
-        bo.setCpf(e.getCpf());
-        bo.setDataNascimento(e.getDataNascimento());
-        bo.setEmail(e.getEmail());
-        bo.setTelefone(e.getTelefone());
+        bo.setId(entity.getId());
+        bo.setNomeCompleto(entity.getNomeCompleto());
+        bo.setCpf(entity.getCpf());
+        bo.setDataNascimento(entity.getDataNascimento());
+        bo.setEmail(entity.getEmail());
+        bo.setTelefone(entity.getTelefone());
         return bo;
     }
 }
