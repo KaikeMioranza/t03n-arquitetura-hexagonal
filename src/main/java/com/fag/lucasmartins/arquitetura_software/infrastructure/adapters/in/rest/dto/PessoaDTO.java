@@ -1,8 +1,12 @@
 package com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.rest.dto;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 public class PessoaDTO {
+
 
     private Integer id;
 
